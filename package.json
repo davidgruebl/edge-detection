@@ -1,0 +1,15 @@
+{
+  "name": "edge-detection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.mediacube.at:fhs36092/multimedia-processing-1.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

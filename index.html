@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <title>Filtertest</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script src="bundle.js"></script>
+
+        <script src="external/PIXASTIC/pixastic.jquery.js"></script>
+        <script src="external/PIXASTIC/pixastic.core.js"></script>
+        <script src="external/PIXASTIC/actions/laplace.js"></script>
+        <script src="external/PIXASTIC/actions/edges.js"></script>
+        <script src="external/PIXASTIC/actions/edges2.js"></script>
+        <script src='js/sobel.js'></script>
+    </head>
+    <body>
+        <figure>
+            <figcaption>a) Originalbild</figcaption>
+            <img id="orig" src="img/cow.jpg"/>
+        </figure>
+        <div id="customFilter">
+            <figure>
+                <figcaption>b) Originalbild mit Sobel Filter</figcaption>
+                <canvas id="sobel" width="600" height="337" style="display: none;"></canvas>
+                <button onclick="sobel()">Sobel Filter</button>
+            </figure>
+            <figure>
+                <figcaption>c) Originalbild mit Eigenem Filter</figcaption>
+                <canvas id="custom" width="600" height="337" style="display: none;"></canvas>
+                <div id="customMatrix">
+                    <input type="text" value="1" size="3">
+                    <input type="text" value="1" size="3">
+                    <input type="text" value="1" size="3">
+                    <br>
+                    <input type="text" value="1" size="3">
+                    <input type="text" value="0.7" size="3">
+                    <input type="text" value="-1" size="3">
+                    <br>
+                    <input type="text" value="-1" size="3">
+                    <input type="text" value="-1" size="3">
+                    <input type="text" value="-1" size="3">
+                    <br>
+                </div>
+                <button onclick="custom()">Run the above filter on the image</button>
+            </figure>
+        </div>
+        <figure>
+            <figcaption>d) Originalbild mit Laplace Edge-Detection</figcaption>
+            <img id="pixeltasticLaplace" src="img/cow.jpg"/>
+        </figure>
+        <figure>
+            <figcaption>e) Originalbild mit Edge Filter</figcaption>
+            <img id="pixeltasticEdge" src="img/cow.jpg"/>
+        </figure>
+        <figure>
+            <figcaption>f) Originalbild mit Edge2 Filter</figcaption>
+            <img id="pixeltasticEdge2" src="img/cow.jpg"/>
+        </figure>
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>
