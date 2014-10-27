@@ -1,3 +1,10 @@
+var Pixastic = require('pixastic')
+require('pixastic.laplace')
+require('pixastic.edges')
+require('pixastic.edges2')
+
+var Filters = require('filters')
+
 var grayscale, sobel, custom;
 
 var img = document.getElementById( 'orig' );
