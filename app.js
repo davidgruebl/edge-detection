@@ -1,3 +1,4 @@
+var $ = require('jquery')
 var Pixastic = require('pixastic')
 require('pixastic.laplace')
 require('pixastic.edges')
