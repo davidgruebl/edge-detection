@@ -2,14 +2,54 @@
   "name": "edge-detection",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "./app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "browserify app.js | uglifyjs -mc > bundle.js",
+    "watch": "watchify app.js -o bundle.js -dv"
   },
   "repository": {
     "type": "git",
-    "url": "git@git.mediacube.at:fhs36092/multimedia-processing-1.git"
+    "url": "git@github.com:davidgruebl/edge_detection.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^6.2.0",
+    "browserify-shim": "^3.8.0",
+    "uglify-js": "^2.4.15"
+  },
+  "devDependencies": {
+    "watchify": "^2.1.0"
+  },
+  "browser": {
+    "pixastic": "./lib/vendor/pixastic/pixastic.core.js",
+    "pixastic.laplace": "./lib/vendor/pixastic/actions/laplace.js",
+    "pixastic.edges": "./lib/vendor/pixastic/actions/edges.js",
+    "pixastic.edges2": "./lib/vendor/pixastic/actions/edges2.js",
+    "filters": "./lib/sobel.js"
+  },
+  "browserify-shim": {
+    "pixastic": "Pixastic",
+    "pixastic.laplace": {
+      "depends": [
+        "pixastic:Pixastic"
+      ]
+    },
+    "pixastic.edges": {
+      "depends": [
+        "pixastic:Pixastic"
+      ]
+    },
+    "pixastic.edges2": {
+      "depends": [
+        "pixastic:Pixastic"
+      ]
+    },
+    "filters": "Filters"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  }
 }
