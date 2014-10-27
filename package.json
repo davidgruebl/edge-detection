@@ -26,7 +26,7 @@
     "pixastic.laplace": "./lib/vendor/pixastic/actions/laplace.js",
     "pixastic.edges": "./lib/vendor/pixastic/actions/edges.js",
     "pixastic.edges2": "./lib/vendor/pixastic/actions/edges2.js",
-    "filters": "./lib/sobel.js"
+    "filters": "./lib/filters.js"
   },
   "browserify-shim": {
     "pixastic": "Pixastic",
@@ -44,8 +44,7 @@
       "depends": [
         "pixastic:Pixastic"
       ]
-    },
-    "filters": "Filters"
+    }
   },
   "browserify": {
     "transform": [
