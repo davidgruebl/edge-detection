@@ -4,9 +4,11 @@
   "description": "",
   "main": "./app.js",
   "scripts": {
-    "build": "browserify app.js | uglifyjs -mc > bundle.js",
-    "watch": "watchify app.js -o bundle.js -dv",
-    "dev": "npm run watch & browser-sync start --files \"./*\" --server"
+    "install": "npm run build",
+    "build": "browserify ./index.js | uglifyjs -mc > ./build/bundle.js",
+    "watch": "watchify ./index.js -o ./build/bundle.js -dv",
+    "kill-dev": "ps ax | grep watchify | awk '{print $1}' | xargs kill",
+    "dev": "npm run kill-dev && npm run build && npm run watch & browser-sync start --files \"./build/*\" --server \"build\""
   },
   "repository": {
     "type": "git",
