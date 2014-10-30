@@ -8,7 +8,7 @@
     "build": "browserify ./index.js | uglifyjs -mc > ./build/bundle.js",
     "watch": "watchify ./index.js -o ./build/bundle.js -dv",
     "kill-dev": "ps ax | grep watchify | awk '{print $1}' | xargs kill",
-    "dev": "npm run kill-dev && npm run build && npm run watch & browser-sync start --files \"./build/*\" --server \"build\""
+    "dev": "./bin/dev"
   },
   "repository": {
     "type": "git",

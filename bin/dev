@@ -1,0 +1,7 @@
+#!/bin/bash
+
+npm run kill-dev
+npm run build
+
+browser-sync start --files "./build/*" --server "build" &
+npm run watch
