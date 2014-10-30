@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <head>
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-    <body>
-        <figure>
-            <figcaption>a) original image</figcaption>
-            <img id="orig" src="img/cow.jpg"/>
-        </figure>
-        <div id="customFilter">
-            <figure>
-                <figcaption>b) original image with sobel filter</figcaption>
-                <canvas id="sobel" width="500" height="455" style="display: none;"></canvas>
-                <button onclick="sobel()">Sobel filter</button>
-            </figure>
-            <figure>
-                <figcaption>c) original image with own filter</figcaption>
-                <canvas id="custom" width="500" height="455" style="display: none;"></canvas>
-                <div id="customMatrix">
-                    <input type="text" value="1" size="3">
-                    <input type="text" value="1" size="3">
-                    <input type="text" value="1" size="3">
-                    <br>
-                    <input type="text" value="1" size="3">
-                    <input type="text" value="0.7" size="3">
-                    <input type="text" value="-1" size="3">
-                    <br>
-                    <input type="text" value="-1" size="3">
-                    <input type="text" value="-1" size="3">
-                    <input type="text" value="-1" size="3">
-                    <br>
-                </div>
-                <button onclick="custom()">Run the above filter on the image</button>
-            </figure>
-        </div>
-        <figure>
-            <figcaption>d)o riginal image with laplace edge-detection</figcaption>
-            <img id="pixeltasticLaplace" src="img/cow.jpg"/>
-        </figure>
-        <figure>
-            <figcaption>e) original image with edge filter</figcaption>
-            <img id="pixeltasticEdges" src="img/cow.jpg"/>
-        </figure>
-        <figure>
-            <figcaption>f) original image with edge2 filter</figcaption>
-            <img id="pixeltasticEdges2" src="img/cow.jpg"/>
-        </figure>
-        <script src="bundle.js"></script>
-    </body>
+<body>
+  <figure>
+    <figcaption>a) original image</figcaption>
+    <img id="orig" src="img/cow.jpg"/>
+  </figure>
+  <div id="customFilter">
+    <figure>
+      <figcaption>b) original image with sobel filter</figcaption>
+      <canvas id="sobel" width="500" height="455" style="display: none;"></canvas>
+      <button onclick="sobel()">Sobel filter</button>
+    </figure>
+    <figure>
+      <figcaption>c) original image with own filter</figcaption>
+      <canvas id="custom" width="500" height="455" style="display: none;"></canvas>
+      <div id="customMatrix">
+        <input type="text" value="1" size="3">
+        <input type="text" value="1" size="3">
+        <input type="text" value="1" size="3">
+        <br>
+        <input type="text" value="1" size="3">
+        <input type="text" value="0.7" size="3">
+        <input type="text" value="-1" size="3">
+        <br>
+        <input type="text" value="-1" size="3">
+        <input type="text" value="-1" size="3">
+        <input type="text" value="-1" size="3">
+        <br>
+      </div>
+      <button onclick="custom()">Run the above filter on the image</button>
+    </figure>
+  </div>
+  <figure>
+    <figcaption>d)o riginal image with laplace edge-detection</figcaption>
+    <img id="pixeltasticLaplace" src="img/cow.jpg"/>
+  </figure>
+  <figure>
+    <figcaption>e) original image with edge filter</figcaption>
+    <img id="pixeltasticEdges" src="img/cow.jpg"/>
+  </figure>
+  <figure>
+    <figcaption>f) original image with edge2 filter</figcaption>
+    <img id="pixeltasticEdges2" src="img/cow.jpg"/>
+  </figure>
+  <script src="bundle.js"></script>
+</body>
 </html>
