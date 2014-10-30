@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html lang="de">
-    <head>
-        <title>Filtertest</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<html         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <figure>
-            <figcaption>a) Originalbild</figcaption>
+            <figcaption>a) original image</figcaption>
             <img id="orig" src="img/cow.jpg"/>
         </figure>
         <div id="customFilter">
             <figure>
-                <figcaption>b) Originalbild mit Sobel Filter</figcaption>
+                <figcaption>b) original image with sobel filter</figcaption>
                 <canvas id="sobel" width="600" height="337" style="display: none;"></canvas>
-                <button onclick="sobel()">Sobel Filter</button>
+                <button onclick="sobel()">Sobel filter</button>
             </figure>
             <figure>
-                <figcaption>c) Originalbild mit Eigenem Filter</figcaption>
+                <figcaption>c) original image with own filter</figcaption>
                 <canvas id="custom" width="600" height="337" style="display: none;"></canvas>
                 <div id="customMatrix">
                     <input type="text" value="1" size="3">
@@ -38,16 +34,16 @@
             </figure>
         </div>
         <figure>
-            <figcaption>d) Originalbild mit Laplace Edge-Detection</figcaption>
+            <figcaption>d)o riginal image with laplace edge-detection</figcaption>
             <img id="pixeltasticLaplace" src="img/cow.jpg"/>
         </figure>
         <figure>
-            <figcaption>e) Originalbild mit Edge Filter</figcaption>
-            <img id="pixeltasticEdge" src="img/cow.jpg"/>
+            <figcaption>e) original image with edge filter</figcaption>
+            <img id="pixeltasticEdges" src="img/cow.jpg"/>
         </figure>
         <figure>
-            <figcaption>f) Originalbild mit Edge2 Filter</figcaption>
-            <img id="pixeltasticEdge2" src="img/cow.jpg"/>
+            <figcaption>f) original image with edge2 filter</figcaption>
+            <img id="pixeltasticEdges2" src="img/cow.jpg"/>
         </figure>
         <script src="bundle.js"></script>
     </body>
