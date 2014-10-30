@@ -4,7 +4,10 @@ require('pixastic.edges2')
 var $ = require('jquery')
 var Pixastic = require('pixastic')
 var imagesLoaded = require('imagesloaded')
-var Filters = require('filters')
+
+var lib = require('./lib')
+
+var Filters = lib.Filters
 
 var img = $('#orig')[0]
 
@@ -24,29 +27,6 @@ process('laplace', {
     invert: true
 })
 
-function runFilter(id, filter, arg1, arg2, arg3) {
-    var c = $('#' + id)[0]
-    var s = $('#' + id).prev()[0].style
-    var b = c.parentNode.getElementsByTagName('button')[0]
-    if (b.originalText === null) {
-        b.originalText = b.textContent
-    }
-    if (s.display === 'none') {
-        s.display = 'inline'
-        c.style.display = 'none'
-        b.textContent = b.originalText
-        return
-    }
-    var idata = Filters.filterImage(filter, img, arg1, arg2, arg3)
-    c.width = idata.width
-    c.height = idata.height
-    var ctx = c.getContext('2d')
-    ctx.putImageData(idata, 0, 0)
-    s.display = 'none'
-    c.style.display = 'inline'
-    b.textContent = 'restore'
-}
-
 imagesLoaded(img, function() {
     var canvases = $('#customFilter')[0].getElementsByTagName('canvas')
     for (var i = 0; i < canvases.length; i++) {
@@ -56,11 +36,11 @@ imagesLoaded(img, function() {
     }
 
     var grayscale = function() {
-        runFilter('grayscale', Filters.grayscale)
+        lib.runFilter('grayscale', Filters.grayscale)
     }
 
     var sobel = function() {
-        runFilter('sobel', function(px) {
+        lib.runFilter('sobel', function(px) {
             px = Filters.grayscale(px)
             var vertical = Filters.convoluteFloat32(px,
                     [-1, -2, -1,
@@ -90,7 +70,7 @@ imagesLoaded(img, function() {
         for (var i = 0; i < inputs.length; i++) {
             arr.push(parseFloat(inputs[i].value))
         }
-        runFilter('custom', Filters.convolute, arr, true)
+        lib.runFilter('custom', Filters.convolute, arr, true)
     }
     custom()
 
