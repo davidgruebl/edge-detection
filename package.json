@@ -5,7 +5,8 @@
   "main": "./app.js",
   "scripts": {
     "build": "browserify app.js | uglifyjs -mc > bundle.js",
-    "watch": "watchify app.js -o bundle.js -dv"
+    "watch": "watchify app.js -o bundle.js -dv",
+    "dev": "npm run watch & browser-sync start --files \"./*\" --server"
   },
   "repository": {
     "type": "git",
