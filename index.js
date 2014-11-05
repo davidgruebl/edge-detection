@@ -31,12 +31,15 @@ imagesLoaded(img, function() {
     c.style.display = 'none'
   }
 
-  var grayscale = function() {
-    lib.runFilter('grayscale', Filters.grayscale)
+  var $grayscale = $('#grayscale')
+  function grayscale() {
+    lib.runFilter($grayscale, Filters.grayscale)
   }
 
-  var sobel = function() {
-    lib.runFilter('sobel', function(px) {
+  var $sobel = $('#sobel')
+  $sobel.siblings('button').click(sobel)
+  function sobel() {
+    lib.runFilter($sobel, function(px) {
       px = Filters.grayscale(px)
       var vertical = Filters.convoluteFloat32(px, [
         -1, -2, -1,
@@ -60,13 +63,15 @@ imagesLoaded(img, function() {
   }
   sobel()
 
-  var custom = function() {
+  var $custom = $('#custom')
+  $custom.siblings('button').click(custom)
+  function custom() {
       var inputs = $('#customMatrix input')
       var arr = []
       for (var i = 0; i < inputs.length; i++) {
           arr.push(parseFloat(inputs[i].value))
       }
-      lib.runFilter('custom', Filters.convolute, arr, true)
+      lib.runFilter($custom, Filters.convolute, arr, true)
   }
   custom()
 
