@@ -1,20 +1,19 @@
+'use strict'
+
+var $ = require('jquery')
+var Pixastic = require('pixastic')
 require('pixastic.laplace')
 require('pixastic.edges')
 require('pixastic.edges2')
-var $ = require('jquery')
-var Pixastic = require('pixastic')
 var imagesLoaded = require('imagesloaded')
 
 var lib = require('./lib')
-
 var Filters = lib.Filters
 
-var img = $('#orig')[0]
-
 function process(name, options) {
-  var dom = img = $('#pixeltastic' + require('capitalize')(name))[0]
-  Pixastic.revert(dom)
-  Pixastic.process(dom, name, options)
+  var img = $('#pixeltastic' + require('capitalize')(name))[0]
+  Pixastic.revert(img)
+  Pixastic.process(img, name, options)
 }
 
 process('edges')
@@ -23,13 +22,14 @@ process('laplace', {
   invert: true
 })
 
-imagesLoaded(img, function() {
-  var canvases = $('#customFilter')[0].getElementsByTagName('canvas')
-  for (var i = 0; i < canvases.length; i++) {
-    var c = canvases[i]
-    c.parentNode.insertBefore(img.cloneNode(true), c)
-    c.style.display = 'none'
-  }
+imagesLoaded($('#orig')[0]).on('done', onImagesLoaded)
+function onImagesLoaded() {
+  $('#customFilter').find('canvas').each(function() {
+    var clone = $('#pixeltasticLaplace').clone()[0]
+    $(this)
+      .hide()
+      .parent()[0].insertBefore(clone, $(this)[0])
+  })
 
   var $grayscale = $('#grayscale')
   function grayscale() {
@@ -74,5 +74,4 @@ imagesLoaded(img, function() {
       lib.runFilter($custom, Filters.convolute, arr, true)
   }
   custom()
-
-}, false)
+}
